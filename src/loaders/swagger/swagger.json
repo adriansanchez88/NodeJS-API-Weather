@@ -15,7 +15,7 @@
       "description": "Desarrollo"  
     },
     {
-      "url":"https://node-06-restserver-adrian.herokuapp.com/api/v1",
+      "url":"https://weather-api-adrian.herokuapp.com/api/v1",
       "description": "Producción"  
     } 
   ],
