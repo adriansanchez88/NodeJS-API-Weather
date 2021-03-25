@@ -82,7 +82,7 @@
           {
             "name": "longitude",
             "in": "query",
-            "description": "The longitude of the location to get current weather. Must use with `latitude`.",
+            "description": "The longitude of the location to get current weather.",
             "required": true,
             "schema": {
               "type":"number"
@@ -92,7 +92,7 @@
           {
             "name": "latitude",
             "in": "query",
-            "description": "The latitude of the location to get current weather. Must use with `longitude`.",
+            "description": "The latitude of the location to get current weather.",
             "required": true,
             "schema": {
               "type":"number"
