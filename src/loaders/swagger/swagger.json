@@ -30,37 +30,19 @@
     }
   ],
   "paths": {    
-    "/weather/{city}/{id}?longitude=&latitude=": {
+    "/weather/{city}/{id}": {
       "get": {
         "tags": [
           "Weather"
         ],
-        "summary": "Call current weather data for the coordinates of one location.",
-        "description": "**Note:** You must select at least one pair of parameters (longitud & latitude or city & id)",
-        "parameters":[          
-          {
-            "name": "longitude",
-            "in": "query",
-            "description": "The longitude of the location to get current weather. Must use with `latitude`.",
-            "required": false,
-            "schema": {
-              "type":"number"
-            }
-          },
-          {
-            "name": "latitude",
-            "in": "query",
-            "description": "The latitude of the location to get current weather. Must use with `longitude`.",
-            "required": false,
-            "schema": {
-              "type":"number"
-            }
-          },
+        "summary": "Call current weather data for the city name and id provided.",
+        "description": "",
+        "parameters":[ 
           {
             "name": "city",
             "in": "path",
-            "description": "The name of the city to get current weather. Must use with `id`.",
-            "required": false,
+            "description": "The name of the city to get current weather.",
+            "required": true,
             "schema": {
               "type":"string"
             }
@@ -68,12 +50,55 @@
           {
             "name": "id",
             "in": "path",
-            "description": "The id of the city to get current weather. Must use with `city`.",
-            "required": false,
+            "description": "The id of the city to get current weather.",
+            "required": true,
             "schema": {
               "type":"string"
             }
           }             
+        ],            
+        "responses": {
+          "200": {
+            "description": "The current weather data in JSON format.",
+            "content": {
+              "application/json":{
+                "schema":{
+                  "$ref": "#/components/schemas/Success for Weather"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/weather/": {
+      "get": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Call current weather data for the coordinates of one location.",
+        "description": "",
+        "parameters":[          
+          {
+            "name": "longitude",
+            "in": "query",
+            "description": "The longitude of the location to get current weather. Must use with `latitude`.",
+            "required": true,
+            "schema": {
+              "type":"number"
+            },
+            "style":"form"
+          },
+          {
+            "name": "latitude",
+            "in": "query",
+            "description": "The latitude of the location to get current weather. Must use with `longitude`.",
+            "required": true,
+            "schema": {
+              "type":"number"
+            },
+            "style":"form"
+          }            
         ],            
         "responses": {
           "200": {
@@ -133,7 +158,7 @@
             "example": "OK"
           },
           "data":{
-            "description": "The data in JSON format.",
+            "description": "The array data of cities.",
             "type":"array",
             "items":{
               "$ref": "#/components/schemas/City" 
@@ -149,8 +174,7 @@
             "type": "string",          
             "example": "OK"
           },
-          "data":{
-            "description": "The data in JSON format.",
+          "data":{            
             "$ref": "#/components/schemas/Weather"
           }
         }
