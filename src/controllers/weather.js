@@ -22,7 +22,7 @@ const weatherByCoordinates = async (req, res) => {
  * @param {express.Response} res 
  */
  const weatherByCityId = async (req, res) => {
-    const {city, id} = /*req.params*/{city:'leganes', id:'place.11905458085992730'};
+    const {city, id} = req.params;
     const weather = await weatherByCityIdService(city, id);
     const success = new Success(weather);
     res.json(success);
