@@ -86,8 +86,7 @@
             "required": true,
             "schema": {
               "type":"number"
-            },
-            "style":"form"
+            }
           },
           {
             "name": "latitude",
@@ -96,8 +95,7 @@
             "required": true,
             "schema": {
               "type":"number"
-            },
-            "style":"form"
+            }
           }            
         ],            
         "responses": {
