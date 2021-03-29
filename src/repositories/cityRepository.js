@@ -9,7 +9,7 @@ class CityRepository {
         this.apiKey = config.mapbox.apikey;       
     }
 
-    async findCities(city) {
+    async findCities(city) {        
         try {
             const instance = axios.create({
                 baseURL: `${this.pathBase}${city}.json`,
